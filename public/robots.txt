@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://notemydream.com/sitemap.xml

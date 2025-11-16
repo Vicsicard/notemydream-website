@@ -1,0 +1,466 @@
+'use client'
+
+import { useState, useEffect } from 'react'
+import Image from 'next/image'
+
+export default function Home() {
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    setIsVisible(true)
+  }, [])
+
+  return (
+    <div className="min-h-screen morning-gradient text-[#111827] overflow-x-hidden">
+      {/* Hero Section */}
+      <section id="hero" className="relative pt-20 pb-16 sm:pt-28 sm:pb-20 md:pt-40 md:pb-24">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            {/* Text Content */}
+            <div className="text-center md:text-left space-y-6">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-[#111827] mb-4 sm:mb-6">
+                NoteMyDream
+              </h1>
+              <p className="text-lg sm:text-xl text-[#4B5563] max-w-xl mb-6 sm:mb-8 leading-relaxed">
+                Your Morning Reflection Companion
+              </p>
+              <p className="text-sm sm:text-base leading-relaxed text-[#4B5563] max-w-xl mb-6 sm:mb-10">
+                Wake up, speak your dream, and start your day with gentle clarity.
+              </p>
+              
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center md:justify-start gap-3 sm:gap-4 mb-6">
+                <button className="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#5B59FF] text-white text-sm font-medium shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:-translate-y-[1px] transition-all duration-200">
+                  Get the iOS App
+                </button>
+                <button className="w-full sm:w-auto px-6 py-3 rounded-xl border border-[#5B59FF]/40 text-[#5B59FF] bg-white/80 text-sm font-medium shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:-translate-y-[1px] transition-all duration-200">
+                  Get the Android App
+                </button>
+              </div>
+              
+              <p className="text-sm text-[#6B7280]">
+                Built for quiet, half-awake mornings — not late-night scrolling.
+              </p>
+              <p className="mt-1 text-sm italic text-[#9CA3AF]">
+                A voice-first dream journal designed for mornings where words feel slow.
+              </p>
+            </div>
+
+            {/* Phone Mockup */}
+            <div className="relative flex justify-center md:justify-end">
+              <div className="relative">
+                <img
+                  src="/phone-mockup.png"
+                  alt="NoteMyDream app showing Morning Reflection screen with microphone"
+                  className="w-[280px] h-auto sm:w-[320px] md:w-[420px] lg:w-[504px] object-contain drop-shadow-[0_25px_80px_rgba(0,0,0,0.12)] relative z-10"
+                />
+                <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,_rgba(231,228,255,0.8)_0%,_transparent_65%)] blur-3xl opacity-70" />
+              </div>
+            </div>
+          </div>
+          
+          {/* Scroll Indicator */}
+          <div className="flex flex-col items-center mt-16 gap-3 animate-[fadeInOut_3s_ease-in-out_infinite]">
+            <svg className="w-5 h-5 text-[#9CA3AF] opacity-15 animate-[float_2s_ease-in-out_infinite]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      {/* Ritual Promise Section */}
+      <section id="ritual" className="py-20 md:py-24 bg-[#FFFCF8]">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-[#FFFCF8] rounded-2xl sm:rounded-[2.5rem] border border-white/60 shadow-[0_12px_40px_rgba(0,0,0,0.06)] px-6 py-10 sm:px-10 sm:py-12 md:px-12 md:py-14 max-w-4xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-center text-[#111827] max-w-2xl mx-auto mb-6 sm:mb-8 md:mb-10">
+              Build a morning ritual that supports you.
+            </h2>
+            <p className="text-[16px] leading-relaxed text-[#4B5563] text-center max-w-2xl mx-auto mb-12">
+              NoteMyDream isn't just an app. It's a calm moment at the start of your day — a gentle check-in with your inner world before notifications, news, and noise.
+            </p>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mt-6">
+              <div className="flex flex-col items-center text-center rounded-2xl bg-gradient-to-b from-white to-[#FFF9EE] border border-white/80 shadow-[0_8px_24px_rgba(0,0,0,0.04)] hover:translate-y-[-4px] hover:shadow-[0_12px_32px_rgba(0,0,0,0.07)] transition-all duration-200 px-6 py-10">
+                <svg className="h-14 w-14 text-[#5B59FF] mb-6 opacity-80" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+                <h3 className="text-lg font-semibold text-[#111827] mb-2">
+                  Begin each day with gentle clarity.
+                </h3>
+                <p className="text-[16px] leading-relaxed text-[#4B5563]">
+                  A grounded shift before the rest of the world wakes up.
+                </p>
+              </div>
+              <div className="flex flex-col items-center text-center rounded-2xl bg-gradient-to-b from-white to-[#FFF9EE] border border-white/80 shadow-[0_8px_24px_rgba(0,0,0,0.04)] hover:translate-y-[-4px] hover:shadow-[0_12px_32px_rgba(0,0,0,0.07)] transition-all duration-200 px-6 py-10">
+                <svg className="h-14 w-14 text-[#5B59FF] mb-6 opacity-80" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                </svg>
+                <h3 className="text-lg font-semibold text-[#111827] mb-2">
+                  Turn dream moments into emotional insight.
+                </h3>
+                <p className="text-[16px] leading-relaxed text-[#4B5563]">
+                  A quiet space to understand how you feel, not decode symbols.
+                </p>
+              </div>
+              <div className="flex flex-col items-center text-center rounded-2xl bg-gradient-to-b from-white to-[#FFF9EE] border border-white/80 shadow-[0_8px_24px_rgba(0,0,0,0.04)] hover:translate-y-[-4px] hover:shadow-[0_12px_32px_rgba(0,0,0,0.07)] transition-all duration-200 px-6 py-10">
+                <svg className="h-14 w-14 text-[#5B59FF] mb-6 opacity-80" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                </svg>
+                <h3 className="text-lg font-semibold text-[#111827] mb-2">
+                  Create a routine that feels natural, not forced.
+                </h3>
+                <p className="text-[16px] leading-relaxed text-[#4B5563]">
+                  A soft, supportive rhythm that grows with you.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Habit Loop Section */}
+      <section id="habit-loop" className="py-20 md:py-24 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-center text-[#111827] max-w-2xl mx-auto mb-6 sm:mb-8 md:mb-10">
+            How your morning reflection habit works
+          </h2>
+          <p className="leading-relaxed text-[#4B5563] max-w-2xl mx-auto mb-16 text-center">
+            NoteMyDream turns dream journaling into a simple, grounded ritual that fits naturally into your morning. No forcing, no long writing sessions — just a quiet moment of awareness before the day begins.
+          </p>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
+            {/* Step 1 */}
+            <div className="rounded-2xl bg-white/80 backdrop-blur-sm border border-[#F1F1F1] shadow-[0_8px_24px_rgba(0,0,0,0.04)] hover:scale-[1.015] transition-all duration-200 px-6 py-10 flex flex-col items-center">
+              <svg className="h-14 w-14 text-[#5B59FF] mb-6 opacity-80" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+              </svg>
+              <h3 className="text-lg font-semibold text-[#111827] mb-2">Record</h3>
+              <p className="text-[16px] leading-relaxed text-[#4B5563]">
+                Speak your dream, just as you remember it. A soft, voice-first capture that works even when words feel slow.
+              </p>
+            </div>
+
+            {/* Step 2 */}
+            <div className="rounded-2xl bg-white/80 backdrop-blur-sm border border-[#F1F1F1] shadow-[0_8px_24px_rgba(0,0,0,0.04)] hover:scale-[1.015] transition-all duration-200 px-6 py-10 flex flex-col items-center">
+              <svg className="h-14 w-14 text-[#5B59FF] mb-6 opacity-80" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+              </svg>
+              <h3 className="text-lg font-semibold text-[#111827] mb-2">Reflect</h3>
+              <p className="text-[16px] leading-relaxed text-[#4B5563]">
+                Your Dream Guide responds with gentle questions to help you notice how the dream feels this morning.
+              </p>
+            </div>
+
+            {/* Step 3 */}
+            <div className="rounded-2xl bg-white/80 backdrop-blur-sm border border-[#F1F1F1] shadow-[0_8px_24px_rgba(0,0,0,0.04)] hover:scale-[1.015] transition-all duration-200 px-6 py-10 flex flex-col items-center">
+              <svg className="h-14 w-14 text-[#5B59FF] mb-6 opacity-80" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <h3 className="text-lg font-semibold text-[#111827] mb-2">Revisit</h3>
+              <p className="text-[16px] leading-relaxed text-[#4B5563]">
+                Your reflections are saved to a quiet timeline you can revisit anytime.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Morning Reminder Section */}
+      <section id="morning-reminder" className="py-20 md:py-24 bg-gradient-to-b from-white to-[#FFFCF8]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-4">
+              <h2 className="text-4xl font-semibold text-[#111827] mb-4">
+                A gentle nudge when you wake up
+              </h2>
+              <p className="leading-relaxed text-[#4B5563] max-w-xl">
+                Choose a reminder time that matches your natural rhythm. NoteMyDream's morning notification arrives softly — an invitation, not an interruption.
+              </p>
+            </div>
+            
+            {/* iOS Notification Mockup */}
+            <div className="flex justify-center md:justify-end">
+              <div className="bg-white/90 backdrop-blur-xl border border-white/60 shadow-[0_20px_50px_rgba(0,0,0,0.12)] rounded-2xl px-6 py-4 w-full max-w-sm">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-[#C9C4FF] to-[#FFE2D1] flex-shrink-0" />
+                  <div className="flex-1">
+                    <p className="text-sm font-semibold text-[#111827]">NoteMyDream</p>
+                    <p className="text-[11px] text-[#9CA3AF]">now</p>
+                  </div>
+                </div>
+                <p className="text-sm text-[#4B5563] leading-snug">
+                  Good morning. When you're ready, want to reflect on last night's dream?
+                </p>
+              </div>
+            </div>
+        </div>
+      </section>
+
+      {/* Emotional Rewards Section */}
+      <section id="emotional-rewards" className="py-20 md:py-24 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl font-semibold text-[#111827] mb-4">
+            Feel the difference in your mornings.
+          </h2>
+          <p className="leading-relaxed text-[#4B5563] max-w-2xl mx-auto mb-12">
+            As your reflections accumulate, mornings feel less rushed and more grounded. A few quiet moments can change how you move through the day.
+          </p>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+            <div className="rounded-full px-8 py-4 bg-gradient-to-r from-[#FFF5E8] to-[#EDEAFF] text-[#111827] font-medium text-sm shadow-[0_6px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_28px_rgba(0,0,0,0.08)] transition-all duration-200">
+              Wake up with more clarity.
+            </div>
+            <div className="rounded-full px-8 py-4 bg-gradient-to-r from-[#FFF5E8] to-[#EDEAFF] text-[#111827] font-medium text-sm shadow-[0_6px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_28px_rgba(0,0,0,0.08)] transition-all duration-200">
+              Reduce that "spinning mind" feeling.
+            </div>
+            <div className="rounded-full px-8 py-4 bg-gradient-to-r from-[#FFF5E8] to-[#EDEAFF] text-[#111827] font-medium text-sm shadow-[0_6px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_28px_rgba(0,0,0,0.08)] transition-all duration-200">
+              Notice what your inner world has been trying to say.
+            </div>
+            <div className="rounded-full px-8 py-4 bg-gradient-to-r from-[#FFF5E8] to-[#EDEAFF] text-[#111827] font-medium text-sm shadow-[0_6px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_28px_rgba(0,0,0,0.08)] transition-all duration-200">
+              Start the day connected, not scattered.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Dream Timeline Section */}
+      <section id="dream-timeline" className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-[#FFFCF8] to-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-semibold text-[#111827] text-center mb-4">
+            A calm record of your inner world
+          </h2>
+          <p className="text-[16px] leading-relaxed text-[#4B5563] text-center max-w-2xl mx-auto mb-16">
+            Each morning's reflection becomes part of a quiet timeline. Over time, patterns, feelings, and themes begin to reveal themselves — gently, without interpretation or analysis.
+          </p>
+          
+          {/* Timeline Mockup */}
+          <div className="max-w-md mx-auto relative">
+            <div className="absolute left-8 top-3 bottom-3 w-[2px] bg-gradient-to-b from-[#EEEFFC] to-[#D8D9E4] rounded-full" />
+            
+            <div className="relative pl-16 mb-8">
+              <div className="absolute left-[26px] top-4 h-3 w-3 rounded-full bg-[#CBC6FF] shadow-[0_3px_10px_rgba(0,0,0,0.15)]" />
+              <div className="rounded-2xl bg-gradient-to-b from-white to-[#FAFAFF] border border-[#E5E7EB] px-5 py-4 shadow-[0_10px_30px_rgba(0,0,0,0.05)]">
+                <p className="text-xs font-semibold text-[#9CA3AF] mb-2 tracking-wide">November 3, 2025</p>
+                <p className="text-sm text-[#374151] mb-3 leading-relaxed">
+                  Soft colors. Woke feeling peaceful and steady.
+                </p>
+                <span className="inline-flex items-center rounded-full px-3 py-1 text-[11px] font-medium bg-[#F4F1FF] border border-[#DFDBFF] text-[#524FFF]">
+                  calm
+                </span>
+              </div>
+            </div>
+            
+            <div className="relative pl-16 mb-8">
+              <div className="absolute left-[26px] top-4 h-3 w-3 rounded-full bg-[#CBC6FF] shadow-[0_3px_10px_rgba(0,0,0,0.15)]" />
+              <div className="rounded-2xl bg-gradient-to-b from-white to-[#FAFAFF] border border-[#E5E7EB] px-5 py-4 shadow-[0_10px_30px_rgba(0,0,0,0.05)]">
+                <p className="text-xs font-semibold text-[#9CA3AF] mb-2 tracking-wide">November 2, 2025</p>
+                <p className="text-sm text-[#374151] mb-3 leading-relaxed">
+                  Dreamed of running water. Felt calm waking up.
+                </p>
+                <span className="inline-flex items-center rounded-full px-3 py-1 text-[11px] font-medium bg-[#F4F1FF] border border-[#DFDBFF] text-[#524FFF]">
+                  curious
+                </span>
+              </div>
+            </div>
+            
+            <div className="relative pl-16 mb-8">
+              <div className="absolute left-[26px] top-4 h-3 w-3 rounded-full bg-[#CBC6FF] shadow-[0_3px_10px_rgba(0,0,0,0.15)]" />
+              <div className="rounded-2xl bg-gradient-to-b from-white to-[#FAFAFF] border border-[#E5E7EB] px-5 py-4 shadow-[0_10px_30px_rgba(0,0,0,0.05)]">
+                <p className="text-xs font-semibold text-[#9CA3AF] mb-2 tracking-wide">November 1, 2025</p>
+                <p className="text-sm text-[#374151] mb-3 leading-relaxed">
+                  Chaotic dream, but clarity after reflecting.
+                </p>
+                <span className="inline-flex items-center rounded-full px-3 py-1 text-[11px] font-medium bg-[#F4F1FF] border border-[#DFDBFF] text-[#524FFF]">
+                  restless
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Weekly Summary Section */}
+      <section id="weekly-summary" className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-white to-[#FFFCF8]">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-semibold text-[#111827] text-center mb-4">
+            A soft weekly check-in
+          </h2>
+          <p className="text-[16px] leading-relaxed text-[#4B5563] text-center max-w-2xl mx-auto mb-16">
+            On Sunday mornings, your Dream Guide offers a gentle reflection on your week — highlighting tones, emotions, and recurring themes. Nothing diagnostic. Nothing interpretive. Just a quiet way to notice your inner world.
+          </p>
+          
+          {/* Weekly Summary Card */}
+          <div className="max-w-xl mx-auto">
+            <div className="rounded-2xl bg-gradient-to-b from-white to-[#FFF8F0] border border-white/60 shadow-[0_12px_30px_rgba(0,0,0,0.06)] px-6 py-5 sm:px-8 sm:py-6">
+              <svg className="h-8 w-8 text-[#5B59FF] opacity-70 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <div className="space-y-4 text-[#111827] leading-relaxed">
+                <p className="text-base">Your dreams felt calmer this week.</p>
+                <p className="text-base">A recurring tone: curiosity.</p>
+                <p className="text-base italic text-[#6B7280]">A gentle question: What do you want to carry forward into next week?</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Gentle Streak Section */}
+      <section id="gentle-streak" className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-[#FFFCF7] to-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(80,99,255,0.03)_0%,_transparent_70%)] pointer-events-none" />
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#111827] mb-4 sm:mb-6">
+            A reflection rhythm that feels good to keep
+          </h2>
+          <p className="text-sm sm:text-base leading-relaxed text-[#4B5563] max-w-3xl mx-auto mb-8 sm:mb-12">
+            NoteMyDream notices when you've shown up for yourself a few mornings in a row and quietly celebrates your rhythm. No guilt if you miss a day — your ritual is here whenever you're ready.
+          </p>
+          
+          {/* Premium Streak Visual */}
+          <div className="overflow-x-auto pb-4 mb-6 sm:mb-8 -mx-4 px-4">
+            <div className="flex justify-center items-center gap-2 min-w-max mx-auto">
+            {[1, 2, 3, 4, 5, 6, 7].map((day, index) => (
+              <div key={day} className="flex flex-col items-center gap-2">
+                <div
+                  className={`relative w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-200 ${
+                    index < 4
+                      ? 'bg-[#5063FF] shadow-[0_0_20px_rgba(80,99,255,0.3)] scale-110'
+                      : 'bg-gray-100'
+                  }`}
+                >
+                  {index < 4 && (
+                    <>
+                      <div className="absolute inset-0 rounded-full bg-[#5063FF] opacity-20 animate-ping" />
+                      <div className="w-2 h-2 rounded-full bg-white" />
+                    </>
+                  )}
+                </div>
+                {index < 6 && (
+                  <div className={`h-px w-3 sm:w-4 ${index < 3 ? 'bg-[#5063FF]' : 'bg-gray-200'}`} />
+                )}
+              </div>
+            ))}
+            </div>
+          </div>
+          <p className="text-sm text-[#6B7280]">Recent mornings you reflected</p>
+        </div>
+      </section>
+
+      {/* Founder Story Section */}
+      <section id="founder-story" className="py-16 sm:py-20 md:py-24 bg-white">
+        <div className="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-gradient-to-br from-[#F8F7FD] to-[#FFF9F5] rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 shadow-[0_8px_30px_rgba(0,0,0,0.06)]">
+            <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
+              <div className="h-16 w-16 sm:h-20 sm:w-20 rounded-full bg-gradient-to-br from-[#5063FF] to-[#A855F7] border-2 border-white shadow-lg flex-shrink-0" />
+              <div className="flex-1">
+                <h2 className="text-xl sm:text-2xl font-semibold text-[#111827] mb-3 sm:mb-4">
+                  Why I built NoteMyDream
+                </h2>
+                <p className="text-sm sm:text-base leading-relaxed text-[#4B5563] mb-4 sm:mb-6">
+                  I built NoteMyDream because my own mornings felt rushed and disconnected. I was waking from vivid dreams that disappeared before I could understand how they made me feel. I wanted a quiet, non-judgmental space to reflect before the noise of the day. This app is that space — a soft morning companion for anyone seeking clarity, calm, and emotional awareness.
+                </p>
+                <p className="text-sm italic text-[#6B7280]">— Founder</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Waitlist Signup Section */}
+      <section id="waitlist" className="py-20 md:py-28 bg-gradient-to-b from-white to-[#F8F7FD]">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="relative inline-block mb-4 sm:mb-6">
+            <div className="absolute inset-0 bg-gradient-to-r from-[#5063FF]/10 to-[#A855F7]/10 blur-2xl" />
+            <h2 className="relative text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-[#111827]">
+              Join the waitlist
+            </h2>
+          </div>
+          <p className="text-sm sm:text-base leading-relaxed text-[#4B5563] mb-8 sm:mb-10">
+            Be the first to know when NoteMyDream launches. We'll send you early access and updates.
+          </p>
+          
+          <form 
+            action={`mailto:hello@notemydream.com?subject=Waitlist Signup&body=Name: %0D%0AEmail: `}
+            method="get"
+            className="max-w-md mx-auto"
+          >
+            <div className="flex flex-col sm:flex-row gap-3">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                required
+                className="flex-1 px-5 py-4 rounded-xl border border-[#E5E7EB] bg-white text-[#111827] placeholder-[#9CA3AF] text-sm focus:outline-none focus:ring-2 focus:ring-[#5063FF]/20 focus:border-[#5063FF] transition-all"
+              />
+              <button
+                type="submit"
+                className="px-8 py-4 rounded-xl bg-[#5063FF] text-white text-sm font-medium shadow-[0_8px_30px_rgba(80,99,255,0.25)] hover:shadow-[0_12px_40px_rgba(80,99,255,0.35)] hover:-translate-y-1 transition-all duration-200 ease-out whitespace-nowrap"
+              >
+                Join Waitlist
+              </button>
+            </div>
+          </form>
+          
+          <p className="text-xs text-[#9CA3AF] mt-4">
+            We respect your privacy. No spam, ever.
+          </p>
+        </div>
+      </section>
+
+      {/* Final CTA Section */}
+      <section id="final-cta" className="py-20 md:py-24 bg-gradient-to-b from-[#F8F7FD] to-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#111827] mb-4">
+            Begin your morning reflection ritual.
+          </h2>
+          <p className="text-sm sm:text-base leading-relaxed text-[#4B5563] mb-6 sm:mb-8">
+            Create a calm moment at the start of your day — your future self will thank you.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
+            <button className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-[#5063FF] text-white text-sm font-medium shadow-[0_8px_30px_rgba(80,99,255,0.25)] hover:shadow-[0_12px_40px_rgba(80,99,255,0.35)] hover:-translate-y-1 transition-all duration-200 ease-out">
+              Get the iOS App
+            </button>
+            <button className="w-full sm:w-auto px-8 py-4 rounded-2xl border border-[#5063FF]/30 text-[#5063FF] bg-white/80 text-sm font-medium shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-200 ease-out">
+              Get the Android App
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-12 px-6 bg-gradient-to-b from-[#F8F7FD] to-white border-t border-[#E5E7EB]">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div>
+              <h3 className="font-semibold text-[#111827] mb-4">NoteMyDream</h3>
+              <p className="text-sm text-[#6B7280]">Designed for quiet mornings.</p>
+            </div>
+            <div>
+              <h4 className="font-semibold text-[#111827] mb-3 text-sm">Download</h4>
+              <ul className="space-y-2 text-sm text-[#6B7280]">
+                <li><a href="#" className="hover:text-[#5063FF] transition-colors">iOS App</a></li>
+                <li><a href="#" className="hover:text-[#5063FF] transition-colors">Android App</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold text-[#111827] mb-3 text-sm">Support</h4>
+              <ul className="space-y-2 text-sm text-[#6B7280]">
+                <li><a href="/contact" className="hover:text-[#5063FF] transition-colors">Contact & Support</a></li>
+                <li><a href="#waitlist" className="hover:text-[#5063FF] transition-colors">Join Waitlist</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold text-[#111827] mb-3 text-sm">Legal</h4>
+              <ul className="space-y-2 text-sm text-[#6B7280]">
+                <li><a href="/privacy" className="hover:text-[#5063FF] transition-colors">Privacy Policy</a></li>
+                <li><a href="/terms" className="hover:text-[#5063FF] transition-colors">Terms of Service</a></li>
+              </ul>
+            </div>
+          </div>
+          <div className="text-center text-sm text-[#9CA3AF] pt-8 border-t border-[#E5E7EB]">
+            © 2025 NoteMyDream. Your dreams stay yours.
+          </div>
+        </div>
+      </footer>
+    </div>
+  )
+}

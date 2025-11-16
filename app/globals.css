@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased;
+    font-size: 17px;
+  }
+}
+
+@layer utilities {
+  @keyframes fadeInOut {
+    0%, 100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .morning-gradient {
+    background: linear-gradient(to bottom,
+      #FAF8FF 0%,
+      #FFFDF8 35%,
+      #FFFFFF 100%
+    );
+  }
+}
+@layer base {
+  body {
+    @apply bg-white text-midnight-indigo antialiased;
+  }
+}
