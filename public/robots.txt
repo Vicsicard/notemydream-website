@@ -1,4 +1,10 @@
+# Robots.txt for Note My Dream
 User-agent: *
 Allow: /
 
+# Disallow admin or private paths if any exist in the future
+# Disallow: /admin/
+# Disallow: /api/
+
+# Sitemap location
 Sitemap: https://notemydream.com/sitemap.xml

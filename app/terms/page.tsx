@@ -134,6 +134,12 @@ export default function Terms() {
                 <p className="text-[#4B5563] leading-relaxed">
                   You may cancel your subscription at any time. Cancellations take effect at the end of the current billing period. Refunds are handled in accordance with applicable app store policies (Apple App Store, Google Play Store).
                 </p>
+                <p className="text-[#4B5563] leading-relaxed mt-4">
+                  For iOS users, all subscriptions are billed and managed through Apple&apos;s App Store. Refund requests for iOS purchases must be handled directly through Apple.
+                </p>
+                <p className="text-[#4B5563] leading-relaxed mt-2">
+                  Users who subscribed on the web may sign in on iOS to access premium features, but new purchases on iOS must be completed through Apple.
+                </p>
               </section>
 
               <section className="mb-8">
@@ -202,7 +208,7 @@ export default function Terms() {
                   If you have questions about these Terms of Service, please contact us:
                 </p>
                 <p className="text-[#4B5563] leading-relaxed">
-                  Email: <a href="mailto:info@notemydream.com" className="text-[#5063FF] hover:text-[#4048CC]">info@notemydream.com</a><br />
+                  Email: <a href="mailto:hello@notemydream.com" className="text-[#5063FF] hover:text-[#4048CC]">hello@notemydream.com</a><br />
                   Website: <a href="/" className="text-[#5063FF] hover:text-[#4048CC]">notemydream.com</a>
                 </p>
               </section>

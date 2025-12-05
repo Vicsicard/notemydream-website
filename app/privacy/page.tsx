@@ -48,10 +48,13 @@ export default function Privacy() {
                 <h3 className="text-xl font-semibold text-[#111827] mb-3 mt-6">Information You Provide</h3>
                 <ul className="list-disc pl-6 text-[#4B5563] space-y-2 mb-4">
                   <li><strong>Account Information:</strong> Email address, name, and password when you create an account</li>
-                  <li><strong>Dream Recordings:</strong> Voice recordings and transcriptions of your dreams</li>
+                  <li><strong>Dream Recordings:</strong> Voice recordings and transcriptions of your dreams. By default, audio recordings are deleted after they are successfully transcribed, unless you enable the optional <em>"Keep Audio Recordings"</em> setting in the app.</li>
                   <li><strong>Reflections:</strong> Your responses to reflection prompts and emotional check-ins</li>
                   <li><strong>Profile Settings:</strong> Notification preferences, reminder times, and app settings</li>
                 </ul>
+                <p className="text-[#4B5563] leading-relaxed mb-4">
+                  Note My Dream is not a therapy, counseling, or medical service, and does not provide diagnosis, treatment, or professional advice.
+                </p>
 
                 <h3 className="text-xl font-semibold text-[#111827] mb-3 mt-6">Automatically Collected Information</h3>
                 <ul className="list-disc pl-6 text-[#4B5563] space-y-2">
@@ -88,6 +91,9 @@ export default function Privacy() {
                   <li>Regular security audits and updates</li>
                   <li>Limited employee access to user data</li>
                 </ul>
+                <p className="text-[#4B5563] leading-relaxed mt-4">
+                  By default, audio recordings are kept only as long as needed to create a transcript of your dream and are then deleted. If you enable the optional <strong>"Keep Audio Recordings"</strong> setting in the app, your audio may be stored for longer so you can revisit it. In all cases, you can delete individual dreams or delete your account to remove your associated data.
+                </p>
               </section>
 
               <section className="mb-8">
@@ -115,7 +121,7 @@ export default function Privacy() {
                   <li><strong>Correct:</strong> Update or correct your personal information</li>
                 </ul>
                 <p className="text-[#4B5563] leading-relaxed mt-4">
-                  To exercise these rights, contact us at <a href="mailto:info@notemydream.com" className="text-[#5063FF] hover:text-[#4048CC]">info@notemydream.com</a>
+                  To exercise these rights, contact us at <a href="mailto:hello@notemydream.com" className="text-[#5063FF] hover:text-[#4048CC]">hello@notemydream.com</a>
                 </p>
               </section>
 
@@ -146,7 +152,7 @@ export default function Privacy() {
                   If you have questions about this Privacy Policy or our data practices, please contact us:
                 </p>
                 <p className="text-[#4B5563] leading-relaxed">
-                  Email: <a href="mailto:info@notemydream.com" className="text-[#5063FF] hover:text-[#4048CC]">info@notemydream.com</a><br />
+                  Email: <a href="mailto:hello@notemydream.com" className="text-[#5063FF] hover:text-[#4048CC]">hello@notemydream.com</a><br />
                   Website: <a href="/" className="text-[#5063FF] hover:text-[#4048CC]">notemydream.com</a>
                 </p>
               </section>

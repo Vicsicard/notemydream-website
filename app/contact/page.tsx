@@ -1,8 +1,62 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    category: '',
+    subject: '',
+    message: ''
+  })
+  const [submitted, setSubmitted] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    
+    try {
+      // Submit to Cloudflare Pages Function
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          category: formData.category,
+          subject: formData.subject,
+          message: formData.message
+        })
+      })
+      
+      if (response.ok) {
+        // Show confirmation
+        setSubmitted(true)
+        
+        // Reset form after 5 seconds
+        setTimeout(() => {
+          setFormData({ name: '', email: '', category: '', subject: '', message: '' })
+          setSubmitted(false)
+        }, 5000)
+      } else {
+        throw new Error('Failed to send message')
+      }
+    } catch (error) {
+      console.error('Form submission error:', error)
+      alert('There was an error submitting your message. Please email us directly at support@notemydream.com')
+    }
+  }
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    })
+  }
+
   return (
     <div className="min-h-screen morning-gradient text-[#111827]">
       {/* Header */}
@@ -55,10 +109,18 @@ export default function Contact() {
           </div>
 
           <div className="bg-white/80 backdrop-blur-sm rounded-2xl sm:rounded-3xl border border-white/60 shadow-[0_12px_40px_rgba(0,0,0,0.06)] p-6 sm:p-8 md:p-10">
+            {submitted && (
+              <div className="mb-6 p-4 rounded-xl bg-green-50 border border-green-200">
+                <p className="text-sm text-green-800 text-center font-medium">
+                  ✓ Thank you! Your message has been sent successfully. We'll respond to you at {formData.email} as soon as possible.
+                </p>
+              </div>
+            )}
+            
             <form 
-              action="mailto:support@notemydream.com"
-              method="get"
-              encType="text/plain"
+              action="https://notemydream.com/contact"
+              method="post"
+              onSubmit={handleSubmit}
               className="space-y-6"
             >
               <div>
@@ -69,6 +131,9 @@ export default function Contact() {
                   type="text"
                   id="name"
                   name="name"
+                  autoComplete="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   required
                   className="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] bg-white text-[#111827] placeholder-[#9CA3AF] text-sm focus:outline-none focus:ring-2 focus:ring-[#5063FF]/20 focus:border-[#5063FF] transition-all"
                   placeholder="Your name"
@@ -83,6 +148,9 @@ export default function Contact() {
                   type="email"
                   id="email"
                   name="email"
+                  autoComplete="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   required
                   className="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] bg-white text-[#111827] placeholder-[#9CA3AF] text-sm focus:outline-none focus:ring-2 focus:ring-[#5063FF]/20 focus:border-[#5063FF] transition-all"
                   placeholder="your.email@example.com"
@@ -96,6 +164,8 @@ export default function Contact() {
                 <select
                   id="category"
                   name="category"
+                  value={formData.category}
+                  onChange={handleChange}
                   required
                   className="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] bg-white text-[#111827] text-sm focus:outline-none focus:ring-2 focus:ring-[#5063FF]/20 focus:border-[#5063FF] transition-all"
                 >
@@ -116,6 +186,8 @@ export default function Contact() {
                   type="text"
                   id="subject"
                   name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
                   required
                   className="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] bg-white text-[#111827] placeholder-[#9CA3AF] text-sm focus:outline-none focus:ring-2 focus:ring-[#5063FF]/20 focus:border-[#5063FF] transition-all"
                   placeholder="Brief description of your inquiry"
@@ -128,7 +200,9 @@ export default function Contact() {
                 </label>
                 <textarea
                   id="message"
-                  name="body"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   rows={6}
                   required
                   className="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] bg-white text-[#111827] placeholder-[#9CA3AF] text-sm focus:outline-none focus:ring-2 focus:ring-[#5063FF]/20 focus:border-[#5063FF] transition-all resize-none"
