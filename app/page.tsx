@@ -94,9 +94,7 @@ export default function Home() {
             {/* Primary CTA */}
             <div className="flex justify-center items-center mt-8">
               <a
-                href={pwaUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="https://app.notemydream.com/install"
                 className="group relative px-10 py-5 rounded-2xl bg-dream-purple text-white text-xl font-bold shadow-2xl hover:shadow-3xl transition-all duration-300 overflow-hidden"
                 style={{
                   animation: 'pulse-soft 3s ease-in-out infinite'
@@ -698,9 +696,7 @@ export default function Home() {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
-              href={pwaUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="https://app.notemydream.com/install"
               className="group relative px-10 py-5 rounded-2xl bg-dream-purple text-white text-xl font-bold shadow-2xl hover:shadow-3xl transition-all duration-300 overflow-hidden"
               style={{
                 animation: 'pulse-soft 3s ease-in-out infinite'
@@ -732,9 +728,7 @@ export default function Home() {
                 Your morning reflection companion. A gentle space for capturing dreams and finding clarity before the day begins.
               </p>
               <a
-                href={pwaUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="https://app.notemydream.com/install"
                 className="inline-block px-8 py-4 rounded-2xl bg-dream-purple text-white font-bold hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
               >
                 Open Web App
@@ -767,9 +761,7 @@ export default function Home() {
       {showStickyButton && (
         <div className="fixed bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-white via-white to-transparent md:hidden z-50 animate-[slideInUp_0.3s_ease-out]">
           <a
-            href={pwaUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="https://app.notemydream.com/install"
             className="block w-full px-6 py-4 rounded-2xl bg-dream-purple text-white text-center font-bold shadow-2xl active:scale-95 transition-transform duration-200"
             style={{
               animation: 'pulse-soft 3s ease-in-out infinite'
