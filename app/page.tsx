@@ -5,6 +5,8 @@ import { useState, useEffect } from 'react'
 export default function Home() {
   const [showStickyButton, setShowStickyButton] = useState(false)
   const [showFAQ, setShowFAQ] = useState<number | null>(null)
+  const [showWatchAgain, setShowWatchAgain] = useState(false)
+  const [videoRef, setVideoRef] = useState<HTMLVideoElement | null>(null)
   
   // PWA URL - update this with your actual deployed PWA URL
   const pwaUrl = process.env.NEXT_PUBLIC_PWA_URL || 'https://app.notemydream.com'
@@ -19,6 +21,20 @@ export default function Home() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  // Handle video end
+  const handleVideoEnd = () => {
+    setShowWatchAgain(true)
+  }
+
+  // Handle watch again click
+  const handleWatchAgain = () => {
+    if (videoRef) {
+      videoRef.currentTime = 0
+      videoRef.play()
+      setShowWatchAgain(false)
+    }
+  }
 
   return (
     <div className="min-h-screen dream-gradient text-midnight-indigo overflow-x-hidden">
@@ -44,14 +60,30 @@ export default function Home() {
                 animation: 'glow-pulse 4s ease-in-out infinite'
               }}>
                 <video
+                  ref={(el) => setVideoRef(el)}
                   autoPlay
-                  loop
                   muted
                   playsInline
+                  onEnded={handleVideoEnd}
                   className="w-full h-auto"
                 >
                   <source src="/INTRO_VIDEO_1.mp4" type="video/mp4" />
                 </video>
+                
+                {/* Watch Again Button Overlay */}
+                {showWatchAgain && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/30 backdrop-blur-sm animate-[fadeIn_0.3s_ease-out]">
+                    <button
+                      onClick={handleWatchAgain}
+                      className="group px-8 py-4 rounded-2xl bg-dream-purple text-white font-bold shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3"
+                    >
+                      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+                      </svg>
+                      <span>Watch Again</span>
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
 
